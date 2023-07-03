@@ -13,9 +13,11 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const mailchimpAPI = process.env.API_KEY;
 const audienceID = process.env.LIST_ID;
 
-app.listen(3000, function() {
-    console.log("Listening on port 3000");
+app.listen(process.env.PORT || 3000, function() {
+    console.log("Listening on port " + process.env.PORT);
 })
+
+// 
 
 app.get("/", function(req, res) {
     res.sendFile(__dirname + "/signup.html");
